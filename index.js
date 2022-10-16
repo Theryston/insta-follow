@@ -9,6 +9,7 @@ const MAX_RETRIES = 1000;
 (async () => {
   const browser = await puppeteer.launch({
     headless: false,
+    timeout: 60 * 60 * 1000,
   });
   const page = await browser.newPage();
   await page.goto("https://lionsprovedor.com");
