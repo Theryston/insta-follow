@@ -22,7 +22,7 @@ const MAX_RETRIES = 1000;
     const orderId = await createFollowers(page, INSTAGRAM_USERNAME);
     console.log(`Order created! Order ID: ${orderId}`);
     let status = "";
-    while (status !== "Concluído") {
+    while (!["Parcialmente enviado", "Concluído"].includes(status)) {
       status = await getOrderStatus(page, orderId);
       console.log(`Order status: ${status}`);
       await sleep(10000);
